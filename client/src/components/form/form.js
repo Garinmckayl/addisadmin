@@ -2,9 +2,23 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { TextField, Button, Typography, Paper, Select, InputLabel, MenuItem } from '@material-ui/core';
 import pageStyles from './css';
+import styled from 'styled-components'
 import { createEmployee } from '../../actions/employees';
 
-
+const StyledButton = styled(({...rest}) => (
+  <Button classes={{label: 'label'}} {...rest}/>
+))`
+  background: transparent;
+  border-radius: 3px;
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 10px;
+  color: #5600ff;
+  border: 3px solid;
+  &:hover {
+    background-color: #5600ff;
+    color: #fff;
+`
 
 
 const Form = () => {
@@ -55,7 +69,7 @@ const Form = () => {
 
         <TextField name="Salary" variant="outlined" label="Salary" fullWidth value={employeeData.salary} onChange={(e) => setEmployeeData({ ...employeeData, salary: e.target.value })} />
         <TextField name="speciality" variant="outlined" label="speciality (coma separated)" fullWidth value={employeeData.speciality} onChange={(e) => setEmployeeData({ ...employeeData, speciality: e.target.value.split(',') })} />
-        <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
+        <StyledButton className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</StyledButton>
         <Button variant="contained" color="secondary" size="small" onClick={clear} fullWidth>Clear</Button>
       </form>
     </Paper>
