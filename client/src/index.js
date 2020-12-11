@@ -7,6 +7,7 @@ import createSagaMiddleware from 'redux-saga';
 import { initSagas } from './rootSaga'
 import thunk from 'redux-thunk';
 import { reducers } from './reducers';
+import { helloSaga } from './sagas'
 import App from './app';
 import './index.css';
 
@@ -15,6 +16,7 @@ const sagaMiddleware = createSagaMiddleware()
 const store = createStore(reducers, compose(applyMiddleware(sagaMiddleware,
 thunk)));
   initSagas(sagaMiddleware)
+sagaMiddleware.run(helloSaga)
 
 ReactDOM.render(
   <Provider store={store}>
