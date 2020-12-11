@@ -5,6 +5,8 @@
 ![image](client/src/assets/images/demo.png)
 
 Built using mern + styled-components, redux-saga.
+
+Api deployed on heroku [https://addisadmin.herokuapp.com/employees](https://addisadmin.herokuapp.com/employees)
 ## Installation
 
 
