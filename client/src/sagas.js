@@ -3,10 +3,12 @@
 */
 
 import { all, call, put, takeLatest } from 'redux-saga/effects';
-import { actions } from 'actions/employees';
+import * as api from '../api/index.js';
+import * as actions from './actions/employees';
 
 
-const fetchEmployees = () => client.getEmployees()
+const fetchEmployees = api.fetchEmployees();
+
 
 
 function* getEmployeeData() {
@@ -21,6 +23,11 @@ function* getEmployeeData() {
 
 
 export default function* () {
+  yield takeEvery("GET_EMPLOYEE_ASYNC", getEmployeeData);
+}
+
+
+ export default function* () {
   yield all([
     takeLatest(types.GET_EMPLOYEE_ASYNC.FETCH_ALL, fetchEmployees)
   ])
