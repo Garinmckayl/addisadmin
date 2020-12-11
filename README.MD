@@ -2,6 +2,7 @@
 
 
 # Admin
+![image](client/src/assets/images/demo.png)
 
 Built using mern + styled-components, redux-saga.
 ## Installation

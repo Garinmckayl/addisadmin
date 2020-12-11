@@ -11,20 +11,20 @@ const Employee = ( {employee} ) => {
 
     return (
         <Card className={classes.card}>
-      <CardMedia className={classes.media} image={ 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} />
+      <CardMedia className={classes.media} image={ 'https://picsum.photos/200'} />
       <div className={classes.overlay}>
-        <Typography variant="h6">Hello</Typography>
-        <Typography variant="body2">23/12</Typography>
+    <Typography variant="h6">{employee.name}</Typography>
+        <Typography variant="body2">Gender: {employee.gender}</Typography>
       </div>
       <div className={classes.overlay2}>
         {/* <Button style={{ color: 'white' }} size="small" onClick={() => setCurrentId(employee._id)}><MoreHorizIcon fontSize="default" /></Button> */}
       </div>
       <div className={classes.details}>
-        <Typography variant="body2" color="textSecondary" component="h2">#css</Typography>
+        <Typography variant="body2" color="textSecondary" component="h2">Speciality: {employee.speciality}</Typography>
       </div>
-      <Typography className={classes.title} gutterBottom variant="h5" component="h2">NTNAE</Typography>
+      <Typography className={classes.title} gutterBottom variant="h5" component="h2">Name: {employee.name}</Typography>
       <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">FGER</Typography>
+        <Typography variant="body2" color="textSecondary" component="p">Salery: {employee.salary}</Typography>
       </CardContent>
       <CardActions className={classes.cardActions}>
         <Button size="small" color="primary" onClick={() => dispatch(deleteEmployee(employee._id))}><DeleteIcon fontSize="small" /> Delete</Button>

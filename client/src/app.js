@@ -1,9 +1,9 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
 
 import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core';
-import Posts from './components/employees/employees';
+import Employees from './components/employees/employees';
 import Form from './components/form/form';
 import { getEmployees } from './actions/employees';
 import pageStyles from './styles';
@@ -14,6 +14,9 @@ const App = () => {
 
 const classes = pageStyles();
 const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getEmployees());
+  }, [dispatch]);
 
   return (
         <Container maxWidth="lg">
@@ -28,7 +31,7 @@ const dispatch = useDispatch();
               <Form />
             </Grid>
             <Grid item xs={12} sm={7}>
-              <Posts />
+              <Employees />
             </Grid>
           </Grid>
         </Container>
